@@ -12,21 +12,22 @@ const kittenDesc1 = document.querySelector('.card_description1');
 const kittenDesc2 = document.querySelector('.card_description2');
 const kittenDesc3 = document.querySelector('.card_description3');
 
-if (kittenDesc1.includes(descrSearchText)) {
-  kittenDesc1.classList.remove('hidden');
+if (kittenDesc1.innerText.includes(descrSearchText)) {
+  kittenDesc1.parentElement.classList.remove('hidden');
+}
+else {
+  kittenDesc1.parentElement.classList.add('hidden');
 }
 
-
-if (kittenDesc2.includes(descrSearchText)) {
-  if (kittenDesc2.classList.contains('hidden')) {
-    kittenDesc2.classList.remove('hidden');
-  }
-  else { kittenDesc2.classList.add('hidden') }
+if (kittenDesc2.innerText.includes(descrSearchText)) {
+  kittenDesc2.parentElement.classList.remove('hidden');
 }
-if (kittenDesc3.includes(descrSearchText)) {
-  if (kittenDesc3.classList.contains('hidden')
-  ) {
-    kittenDesc3.classList.remove('hidden');
-  }
-  else { kittenDesc3.classList.add('hidden') }
+else {
+  kittenDesc2.parentElement.classList.add('hidden');
+}
+if (kittenDesc3.innerText.includes(descrSearchText)) {
+  kittenDesc3.parentElement.classList.remove('hidden');
+}
+else {
+  kittenDesc3.parentElement.classList.add('hidden');
 }
