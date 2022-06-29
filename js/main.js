@@ -5,12 +5,14 @@ const form = document.querySelector(".js-new-form");
 const listCats = document.querySelector(".js_list");
 
 const input_search_desc = document.querySelector(".js_in_search_desc");
-input_search_desc.value = "cariñoso";
+/*input_search_desc.value = "cariñoso";
 const descrSearchText = input_search_desc.value;
-
+*/
 const kittenDesc1 = document.querySelector(".card_description1");
 const kittenDesc2 = document.querySelector(".card_description2");
 const kittenDesc3 = document.querySelector(".card_description3");
+
+/*
 
 if (kittenDesc1.innerText.includes(descrSearchText)) {
   kittenDesc1.parentElement.classList.remove("hidden");
@@ -80,3 +82,29 @@ buttonSearch.addEventListener("click", (event) => {
     labelMesageError2.classList.add("collapsed");
   }
 });
+*/
+const icon = document.querySelector(".fa-plus-circle");
+
+function showNewCatForm () {
+
+  form.classList.remove('collapsed');
+}
+function hideNewCatForm () {
+
+  form.classList.add('collapsed');
+}
+
+function handleClickNewCatForm (event) {
+  event.preventDefault();
+  if (form.classList.contains('collapsed')) {
+    showNewCatForm();
+  } else {
+    hideNewCatForm();
+
+  }
+}
+icon.addEventListener('click', handleClickNewCatForm);
+
+function renderKitten (url, desc, name, race) {
+  //completa el código
+}
