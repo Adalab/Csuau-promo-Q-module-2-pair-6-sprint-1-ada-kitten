@@ -4,7 +4,7 @@
 
 // const listCats = document.querySelector(".js_list");
 
-// const input_search_desc = document.querySelector(".js_in_search_desc");
+const input_search_desc = document.querySelector(".js_in_search_desc");
 // /*input_search_desc.value = "cariñoso";
 // const descrSearchText = input_search_desc.value;
 // */
@@ -123,7 +123,7 @@
 
 // buttonCancelForm.addEventListener("click", cancelNewKitten);
 
-// const buttonSearch = document.querySelector(".js_buttonSearch");
+const buttonSearch = document.querySelector(".js_buttonSearch");
 
 // let listElement = document.querySelector(".js-listElement");
 
@@ -195,28 +195,52 @@ const kittenDataList = [
   },
 ];
 
-function renderKitten(perData) {
-  const html = `<li class="card">
+function renderKitten () {
+  listElement.innerHTML = '';
+  for (const kitten of kittenDataList) {
+    let html = `<li class="card">
 
-  <img class="card_img" src="${perData.image}" alt="gatito" />
-  <h3 class="card_title">${perData.name}</h3>
-  <h4 class="card_race">${perData.race}</h4>
-  <p class="card_description1 ">${perData.desc}
+  <img class="card_img" src="${kitten.image}" alt="gatito" />
+  <h3 class="card_title">${kitten.name}</h3>
+  <h4 class="card_race">${kitten.race}</h4>
+  <p class="card_description1 ">${kitten.desc}
   </p>
 
 </li>`;
-  return html;
+    listElement.innerHTML += html;
+  }
 }
-
-let index = 0;
+renderKitten();
+/*let index = 0;
 let html = "";
 html += renderKitten(kittenDataList[index]);
 
-listElement.innerHTML = html;
+
 
 index++;
 html += renderKitten(kittenDataList[index]);
 listElement.innerHTML = html;
 index++;
 html += renderKitten(kittenDataList[index]);
-listElement.innerHTML = html;
+listElement.innerHTML = html;*/
+
+
+
+function filterKitten (event) {
+  event.preventDefault();
+  const descrSearchText = input_search_desc.value;
+  listElement.innerHTML = '';
+  renderKitten();
+  for (const kitten of kittenDataList) {
+    if (kitten.desc.includes(descrSearchText)) {
+      listElement.innerHTML += kitten;
+
+
+      //Completa el código
+      //Comprueba si cada gatito contiene la descripción
+      //Si la contiene pintamos un gatito
+      //utilizando la función renderKitten(kittenItem)
+    }
+  }
+}
+buttonSearch.addEventListener("click", filterKitten);
